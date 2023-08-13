@@ -14,5 +14,10 @@ def generate_hash(row):
 
 db["hash"] = db.apply(generate_hash, axis=1)
 
+f = open("hashes.txt", "w")
+
 for _, row in db.iterrows():
-    print(row['name'] + " " + row['hash'])
+    f.write(row['name'] + " " + row['hash'] + "\n")
+    #print(row['name'] + " " + row['hash'])
+
+f.close()
