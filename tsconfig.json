@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "ESNext", // Target ECMAScript version
+		"module": "CommonJS", // Module system for Node.js
+		"outDir": "./dist", // Output directory for compiled files
+		"rootDir": "./src", // Source directory for TypeScript files
+		"strict": true, // Enable strict type checking
+		"esModuleInterop": true // Enable compatibility with CommonJS modules
+	},
+	"include": [
+		"src/**/*.ts" // Files to be compiled
+		//"src/*.ts" // Files to be compiled
+	]
+}

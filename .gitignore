@@ -1,3 +1,4 @@
 node_modules
-Test Data/hashes.txt
+src/Test Data/hashes.txt
 .env
+dist/

@@ -14,7 +14,7 @@ def generate_hash(row):
 
 db["hash"] = db.apply(generate_hash, axis=1)
 
-f = open("hashes.txt", "w")
+f = open("src\Test Data\hashes.txt", "w")
 
 for _, row in db.iterrows():
     f.write("   (\"" + row['name'] + "\", \"" + row['hash'] + "\"),\n")
