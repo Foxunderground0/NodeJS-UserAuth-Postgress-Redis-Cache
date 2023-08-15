@@ -10,7 +10,7 @@ async function measureQueryTime() {
         await client.connect();
         console.log('Connected to PostgreSQL');
 
-        const query = 'SELECT hash FROM users WHERE username = \'Edd\'';
+        const query = 'SELECT hash FROM users WHERE username = \'Rex\'';
 
         const startTime = new Date();
         const res = await client.query(query);
