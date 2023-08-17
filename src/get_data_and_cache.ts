@@ -8,16 +8,21 @@ const port: number = parseInt(process.env.EXPRESS_PORT || "8081", 10);
 dotenv.config({ path: '.env' });
 
 const client = new pg.Client(process.env.ELEPHANT_SQL_URL);
-let isClientConnected = false;
+
+// Corrected async function definition
+async function connectToDatabase() {
+    try {
+        await client.connect();
+        console.log('Connected to PostgreSQL');
+    } catch (err) {
+        console.error('Error connecting to PostgreSQL:', err);
+    }
+}
+
+connectToDatabase(); // Call the function to connect to the database
 
 async function measureQueryTime(username: string) {
     try {
-        if (!isClientConnected) {
-            await client.connect();
-            console.log('Connected to PostgreSQL');
-            isClientConnected = true;
-        }
-
         const query = `SELECT hash FROM users WHERE username = '${username}'`;
 
         const startTime = new Date();
@@ -35,11 +40,10 @@ async function measureQueryTime(username: string) {
     }
 }
 
-
 app.get('/:username', async (req, res) => {
     const username = req.params.username;
     const time = await measureQueryTime(username);
-    res.send("Heyo" + username + time);
+    res.send("Heyo " + username + ", query time: " + time + " ms");
 });
 
 app.listen(port, () => {

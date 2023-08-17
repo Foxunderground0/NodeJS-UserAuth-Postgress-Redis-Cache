@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-		"target": "ESNext", // Target ECMAScript version
-		"module": "CommonJS", // Module system for Node.js
+		"target": "ESNext",
+		"module": "NodeNext",
 		"outDir": "./dist", // Output directory for compiled files
 		"rootDir": "./src", // Source directory for TypeScript files
 		"strict": true, // Enable strict type checking
