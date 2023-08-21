@@ -2,3 +2,4 @@ node_modules
 src/Test Data/hashes.txt
 .env
 dist/
+Test Server/input.csv
